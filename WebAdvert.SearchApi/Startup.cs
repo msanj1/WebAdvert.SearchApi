@@ -35,8 +35,8 @@ namespace WebAdvert.SearchApi
                 app.UseDeveloperExceptionPage();
             }
 
-            //loggerFactory.AddAWSProvider(Configuration.GetAWSLoggingConfigSection(),
-            //    formatter:(loglevel,message, exception)=> $"[{DateTime.Now} {loglevel} {message} {exception?.Message} {exception?.StackTrace}");
+            loggerFactory.AddAWSProvider(Configuration.GetAWSLoggingConfigSection(),
+                formatter: (loglevel, message, exception) => $"[{DateTime.Now} {loglevel} {message} {exception?.Message} {exception?.StackTrace}");
 
             app.UseRouting();
             app.UseEndpoints(endpoints =>
